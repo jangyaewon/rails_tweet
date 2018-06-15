@@ -1,0 +1,15 @@
+ 
+    <div class="text-center" >
+    <h1>나에게 등록된 모든 질문을 출력</h1>
+    
+    <ul class="list-group">
+        <% @asks2.reverse.each do |ask| %>
+        <li class="list-group-item"><%= ask.question %> <small>(<%= ask.ip_address %> , <%= ask.region %>)</small>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn btn-secondary" href="/ask2/<%=ask.id%>">상세보기</a>
+            <a class="btn btn-success" href="/ask2/<%=ask.id%>/edit">수정</a>
+            <a data-confirm="이 글을 삭제하시겠습니까?" class="btn btn-danger" href="/ask2/<%=ask.id%>/delete">삭제</a></li>
+        <% end %>
+    </ul>
+    <br><br>
+    <a class="btn btn-primary" href="/ask2/new" >질문 작성</a>
+    </div>

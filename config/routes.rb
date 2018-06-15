@@ -17,5 +17,15 @@ Rails.application.routes.draw do
   get 'lotto2' => 'lotto2#index'
   get 'lotto2/new' => 'lotto2#new'
 
+  get '/ask' => 'ask#index'
+  get '/ask/new' => 'ask#new'
+  
+  get '/ask2' => 'ask2#index'
+  get '/ask2/new' => 'ask2#new'
+  post '/ask2/create' => 'ask2#create'
+  get '/ask2/:id' => 'ask2#show'
+  get '/ask2/:id/delete' => 'ask2#delete'
+  get '/ask2/:id/edit' => 'ask2#edit'
+  post '/ask2/:id/update' => 'ask2#update'
 end
 

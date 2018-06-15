@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614053538) do
+ActiveRecord::Schema.define(version: 20180615010642) do
+
+  create_table "ask2s", force: :cascade do |t|
+    t.text     "question"
+    t.string   "ip_address"
+    t.string   "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "asks", force: :cascade do |t|
+    t.string   "ip_address"
+    t.string   "region"
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lotto2s", force: :cascade do |t|
     t.string   "numbers"

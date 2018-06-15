@@ -1,0 +1,6 @@
+<h1>새로운 질문을 작성하는 곳</h1>
+<form action='/ask2/create' method="POST">
+    <input type = "hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input class="form-control" type ="text" name="question" placeholder="질문을 입력하세요"><br>
+    <input class="btn btn-success" type ="submit" value="등록하기">
+</form>

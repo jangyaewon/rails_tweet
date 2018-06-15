@@ -1,0 +1,6 @@
+<h1>질문을 수정하는 곳</h1>
+<form action='/ask2/<%=@ask2.id%>/update' method="POST">
+    <input type = "hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input class="form-control" type ="text" name="question" value="<%= @ask2.question%>"><br>
+    <input class="btn btn-success" type ="submit" value="수정하기">
+</form>
