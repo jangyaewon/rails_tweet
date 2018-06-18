@@ -17,6 +17,11 @@
       </nav>
     </div>
     <div class="container">
+      <% flash.each do |key, value| %>
+      <script>
+        toastr.<%= key %>("<%= value %>")
+      </script>
+      <% end %>
     <%= yield %>
     </div>
   </body>

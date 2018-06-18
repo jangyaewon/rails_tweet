@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
     
-    def index#index.html 파일만 views/home/index.html.erb파일을 만들기만 한다면 
+    def index #index.html 파일만 views/home/index.html.erb파일을 만들기만 한다면 
         #자동으로 index.html과 연결해줘 erb코드를 안 써도 된다.
         @msg = "나의 첫 레일즈 앱에 오신걸 환영합니다"
     end    

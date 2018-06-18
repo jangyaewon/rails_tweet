@@ -1,1 +1,9 @@
 @import "bootstrap";
+@import "toastr_rails";
+
+
+
+// css
+#toast-container{
+  top: 70px;
+}

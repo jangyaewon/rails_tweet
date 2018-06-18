@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LottoTest < ActiveSupport::TestCase
+class TweetControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

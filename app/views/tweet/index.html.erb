@@ -1,0 +1,10 @@
+    <div class="text-center" >
+    <h1>모든 트윗 출력</h1>
+    <ul class="list-group">
+        <% @boards.reverse.each do |board| %>
+            <%= link_to truncate(board.contents,length:10)+"    (#{board.created_at})", "/tweet/#{board.id}", class:"list-group-item"%>
+        <% end %>
+    </ul>    
+    <br><br>
+    <a class="btn btn-primary" href="/tweet/new" >질문 작성</a>
+    </div> 

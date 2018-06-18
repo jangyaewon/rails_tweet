@@ -1,0 +1,13 @@
+<h3>상세보기</h3>
+<br>
+<nav aria-label="breadcrumb">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><div class="etc count"><%= @board.contents%> ( <%=@board.ip_address%> )</div></li>
+  </ul>
+</nav>
+<br>
+<p align= "right">
+<a data-confirm="이 글을 삭제하시겠습니까?" class="btn btn-danger" href="/tweet/<%=@board.id%>/destroy">삭제</a>&nbsp;
+<a class="btn btn-success" href="/tweet/<%=@board.id%>/edit">수정</a>&nbsp;
+<a class="btn btn-primary" href="/tweet" >전체 트윗 보러가기</a>
+</p>            

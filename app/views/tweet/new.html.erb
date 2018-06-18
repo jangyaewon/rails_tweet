@@ -1,0 +1,5 @@
+<h1>새로운 질문을 작성하는 곳</h1>
+<%= form_tag('/tweet/create') do %>
+    <%= text_area_tag(:contents,nil,class: "form-control")%><br>
+    <%= submit_tag "작성하기",class: "btn btn-success"%>
+<% end %>

@@ -1,2 +1,0 @@
-class Lotto < ApplicationRecord
-end

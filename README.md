@@ -1,42 +1,3 @@
-180615 Day7
-
-- ORM(Object-Relational Mappings)
-  - 객체와 관계형 데이터베이스 간의 매핑.
-  - 각종 객체에 대한 코드를 별도로 작성(가독성 ↑)
-  - DB에 종속적이지 않다.
-    
-
-간단과제
-
-ASK 만들기
-
-- ask모델과 ask_controller를 만든다.
-  - ask 모델의 column
-    - ip address
-    - region
-    - question
-  - /ask  : 나에게 등록된 모든 질문을 출력
-  - /ask/new : 새로운 질문을 작성하는 곳
-    =>모델 만들고 route 설정하고 controller 작성하고 view 파일 만들기
-    1. $ rails  g  model ask
-    2. $ rails  g  controller ask
-    3. $ rake db:migrate
-  
-  반응형 웹
-- pc에서 모바일 환경으로 변화할시 그에 맞게 변화하는 형태
-- bootstrap의 그리드(12분할)를 통해 이를 가능하게 할 수 있다.
-  
-
-
-
-새로운 환경 만들기
-
-    $ rails _5.0.6_ new twitter_app
-    ~ $ cd ./twitter_app/
-    ~/twitter_app $ rails s -b $IP -p $PORT
-
-
-
 간단과제 2
 
 - Twitter 처음부터 만들어보기
@@ -53,7 +14,6 @@ ASK 만들기
 - View : index,show,new,edit
   views/board
 - Bootstrap 적용하기
-- 작성한 사람의 ip주소 저장하기
 
 1-1
 
@@ -91,7 +51,7 @@ ASK 만들기
     </html>
     
 
-1-3assets/stylesheets/application.scss
+1-3stylesheets/application.scss
 
     @import "bootstrap";
 
@@ -106,6 +66,44 @@ ASK 만들기
 
 
 
-- 다음주 월요일 : ruby코드로 form 만들기=>view helper
+- 작성한 사람의 ip주소 저장하기
+  ---
+
+    $ rails g model board contents ip_address
+    
+
+
+
+view helper
+
+- http://guides.rubyonrails.org/form_helpers.html
+- form태그에 내장된 많은 기능들이 있어 사용하는 데에 용이
+  - 웹어플리케이션을 구성하는 데에  루비언어로 작성할 수 있다.
+
+    <h1>새로운 질문을 작성하는 곳</h1>
+    <form action='/tweet/create' method="POST">
+        <input type = "hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <textarea name="contents"></textarea><br>
+        <input class="btn btn-success" type ="submit" value="등록하기">
+    </form>
+    <% end %>
+     
+    ----------------------------------------------------------------
+    
+    <%= form_tag('/tweet/create') do %>
+        <%= text_area_tag(:contents,nil,class: "form-control")%><br>
+        <%= submit_tag "작성하기",class: "btn btn-success"%>
+    <% end %>
+
+    <% @boards.reverse.each do |board| %>
+            <li class="list-group-item"><%= board.contents %> <small>(<%= board.ip_address %>)</small>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-secondary" href="/tweet/<%=board.id%>">상세보기</a></li>
+    <% end %>
+    
+    -----------------------------------------------------------------
+    
+    <% @boards.reverse.each do |board| %>
+                <li><%= link_to truncate(board.contents,length:10), "/tweet/#{board.id}", class:"list-group-item-action"  %></li>
+            <% end %>
 
 
